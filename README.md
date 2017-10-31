@@ -49,3 +49,29 @@ Things you may want to cover:
     - add `date` field to `Comment` via `rails g migration AddDateToComments date:datetime`
     - run migrations again via `rake db:migrate`
 
+## Add associations between `Dish` and `Comments`
+  - References
+    - http://guides.rubyonrails.org/active_record_migrations.html
+    - https://stackoverflow.com/questions/17894688/has-many-belongs-to-relation-in-active-record-migration-rails-4
+    - https://stackoverflow.com/questions/31450381/has-many-association-migration-in-rails
+
+  - Add `Dish` association to `Comment`
+    - add `belongs_to :dish` association in `Comment` model
+    - add `has_many :comments` association in `Dish` model
+    - generate migration - `rails g migration AddDishRefToComments dish:references`
+    - run migration via `rake db:migrate` to update `schema.rb`
+    - check database schema in `DBeaver` or equivalent to see association in `UML` diagram
+    - open `rails console` and check for `Dish` and `Comment` models
+
+```
+irb(main):002:0> Dish.all
+  Dish Load (2.5ms)  SELECT  "dishes".* FROM "dishes" LIMIT $1  [["LIMIT", 11]]
+=> #<ActiveRecord::Relation []>
+irb(main):003:0> Dish.all[0]
+  Dish Load (0.0ms)  SELECT "dishes".* FROM "dishes"
+=> nil
+irb(main):004:0> Comment.all
+  Comment Load (4.0ms)  SELECT  "comments".* FROM "comments" LIMIT $1  [["LIMIT", 11]]
+=> #<ActiveRecord::Relation []>
+
+```
