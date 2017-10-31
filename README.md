@@ -26,3 +26,7 @@ Things you may want to cover:
 ## Database (Postgres) config and creation
   - Add postgres dev, test username, pw config in `database.yml` 
   - Creat dbs for dev and test via `rake db:create`
+
+## Adding Comment Scaffolding
+  - Add `Comment` model and associated files 
+    - via `rails g scaffold comment rating:integer, comment:string, author:string`
