@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## Database (Postgres) config and creation
+  - Add postgres dev, test username, pw config in `database.yml` 
+  - Creat dbs for dev and test via `rake db:create`
