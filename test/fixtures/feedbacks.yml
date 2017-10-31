@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  firstname: 
+  lastname: 
+  telnum: 
+  email: 
+  agree: 
+  contacttype: 
+  message: MyString
+
+two:
+  firstname: 
+  lastname: 
+  telnum: 
+  email: 
+  agree: 
+  contacttype: 
+  message: MyString
