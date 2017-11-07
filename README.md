@@ -180,3 +180,16 @@ irb(main):068:0> Comment.all.map(&:dish_id)
 irb(main):069:0>
 
 ```
+
+## Use Active Model Serializer for finer control for API endpoints
+  - References
+    - https://github.com/rails-api/active_model_serializers/blob/0-10-stable/docs/general/getting_started.md
+    - https://scotch.io/tutorials/build-a-restful-json-api-with-rails-5-part-three#toc-serializers
+    - https://github.com/rails-api/active_model_serializers/blob/0-10-stable/docs/general/serializers.md
+
+  - add active model serializer to `GemFile` and run `bundle install`
+  - fix any `The system cannot find the path specified.` by replacing `emachnic` harlinks in `.bat` files in `C:\RailsInstaller\Ruby2.3.0\bin` following http://stackoverflow.com/a/35680810
+  - generate serializer for `Dish` via `rails g serializer dish` which generates `app/serializers/dish_serializer.rb`
+  - restart `rails server`
+  - check API endpoint `http://localhost:3000/dishes` - by deafult only `id` will be returned for each `Dish`
+  
