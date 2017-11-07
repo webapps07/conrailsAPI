@@ -201,3 +201,18 @@ irb(main):069:0>
   - in `dish_serializer` 
     - specify the `Dish` attributes to be returned by the `/dishes` API end point
     - add `Comment` `has_many` relation - since there is no serializer for comments all attributes for `Comment` model will be included
+
+## Configure Rails to provide data to `conFusion` Angular app by adding and configuring `rack-cors`
+  - References
+    - https://www.angularonrails.com/getting-started-with-angular-and-rails/
+    - https://www.pluralsight.com/guides/ruby-ruby-on-rails/react-vs-angular-2-integration-with-rails
+  
+  - configure `rails` back-end to allow CORS
+    - add `rack-cors` gem to `Gemfile` so as to enable cross-origin HTTP requests (CORS) so that Angular client-side can communicate with the server
+    - run `bunlde install`
+    - in `/config/initializers/cors.rb` uncomment lines 8 - 16 and modify line 10 to `origins '*'` to allow requests from any origin
+  - make images available in rails server
+    - in `/public` copy the `images` folder from `json-server/public` so as to server the images from rails server
+  - restart the server `rails s -p 3000` to run at port 3000 ( default)
+  - start the Angular `conFusion` app which is already configured to send API requests to port 3000 on localhost via setting the `BaseURL`
+  - note: getting comments in `dishes/:id` and adding a new comment has issues - to be fixed in next step
