@@ -192,4 +192,12 @@ irb(main):069:0>
   - generate serializer for `Dish` via `rails g serializer dish` which generates `app/serializers/dish_serializer.rb`
   - restart `rails server`
   - check API endpoint `http://localhost:3000/dishes` - by deafult only `id` will be returned for each `Dish`
-  
+
+## Use serializer to customize attributes returned by `/dishes` end point
+  - References
+    - https://github.com/rails-api/active_model_serializers/blob/0-10-stable/docs/general/getting_started.md
+    - https://scotch.io/tutorials/build-a-restful-json-api-with-rails-5-part-three#toc-serializers
+
+  - in `dish_serializer` 
+    - specify the `Dish` attributes to be returned by the `/dishes` API end point
+    - add `Comment` `has_many` relation - since there is no serializer for comments all attributes for `Comment` model will be included
