@@ -225,3 +225,16 @@ irb(main):069:0>
   - define attributes to return as `:id, :rating, :comment, :author, :date`
   - define `date` method to return the `created_at` attribute
   - check `http://localhost:3000/dishes/:id` - comments in `dishes/:id` will have `date` filled with values of `created_at`
+
+## Remove redundant `date` attr from comments after updating the `created_at` attr to with values of `date` attr
+  - References
+    - https://stackoverflow.com/questions/47172850/rails-migration-changing-the-attribute-name-of-a-model/47172992#47172992
+
+  - create a new migration via `rails g migration RemoveDateFromComments`
+  - define the up and down methods in the migration file
+    - define `up` method 
+      - for all `Comment` items update the `created_at` attr with value of `date` attr
+      - remove `date` attr from model via `remove_column` method
+    - define `down` method
+      - add `date` attr to the `Comment` model via `add_column` method
+      - for all `Comment` items update the `date` atter to take the value of `created_at` attr
