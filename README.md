@@ -216,3 +216,12 @@ irb(main):069:0>
   - restart the server `rails s -p 3000` to run at port 3000 ( default)
   - start the Angular `conFusion` app which is already configured to send API requests to port 3000 on localhost via setting the `BaseURL`
   - note: getting comments in `dishes/:id` and adding a new comment has issues - to be fixed in next step
+
+## Add Serializer for `Comment` model and return value of `created_at` for `date` attribute
+  - References
+    - https://stackoverflow.com/questions/47172493/rails-active-model-serializer-attribute-alias/47175502#47175502
+
+  - create `Comment` serializer via `rails g serializer comment`
+  - define attributes to return as `:id, :rating, :comment, :author, :date`
+  - define `date` method to return the `created_at` attribute
+  - check `http://localhost:3000/dishes/:id` - comments in `dishes/:id` will have `date` filled with values of `created_at`
